@@ -1,0 +1,138 @@
+<!-- Conteúdo da sua Landing Page -->
+<div id="lp-content">
+    <div style="text-align: center; padding: 50px 20px;">
+        <button class="btn-main" onclick="iniciarFluxo()">ENTRAR NO GRUPO AGORA</button>
+    </div>
+</div>
+
+<!-- Overlay com o Layout que você achou mais bonito -->
+<div id="overlay-confirmacao" style="display: none;">
+    <div class="card">
+        <h2>Quase lá! 🚀</h2>
+        <p>Você será redirecionado para o grupo de <strong>Achadinhos</strong> em:</p>
+        
+        <div class="timer-circle pulse" id="countdown">5</div>
+
+        <p style="font-size: 0.9rem; margin-bottom: 25px;">Prepare-se para economizar!</p>
+        
+        <!-- Botão Cancelar com visual de botão real para Mobile -->
+        <button class="btn-cancel-mobile" onclick="cancelarFluxo()">
+            CANCELAR E VOLTAR
+        </button>
+    </div>
+</div>
+
+<script>
+    let interval;
+    const linkDoGrupo = "https://chat.whatsapp.com/SEU_LINK_AQUI";
+
+    function iniciarFluxo() {
+        document.getElementById('lp-content').style.display = 'none';
+        document.getElementById('overlay-confirmacao').style.display = 'flex';
+
+        let tempo = 5;
+        const display = document.getElementById('countdown');
+
+        interval = setInterval(() => {
+            tempo--;
+            display.innerText = tempo;
+
+            // Disparo do Pixel apenas no final para qualificar o lead
+            if (tempo === 1) {
+                if(typeof fbq !== 'undefined') { fbq('track', 'Lead'); }
+            }
+
+            if (tempo <= 0) {
+                clearInterval(interval);
+                window.location.href = linkDoGrupo;
+            }
+        }, 1000);
+    }
+
+    function cancelarFluxo() {
+        clearInterval(interval);
+        document.getElementById('lp-content').style.display = 'block';
+        document.getElementById('overlay-confirmacao').style.display = 'none';
+    }
+</script>
+
+<style>
+    /* PRESERVANDO O LAYOUT ANTIGO */
+    body {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: #f0f2f5;
+        margin: 0;
+    }
+
+    #overlay-confirmacao {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        display: none;
+        justify-content: center;
+        align-items: center;
+        background-color: #f0f2f5;
+        z-index: 1000;
+        text-align: center;
+    }
+
+    .card {
+        background: white;
+        padding: 2rem;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        max-width: 350px;
+        width: 90%;
+    }
+
+    .timer-circle {
+        font-size: 3.5rem;
+        font-weight: bold;
+        color: #25d366;
+        margin: 20px 0;
+    }
+
+    .pulse {
+        animation: pulse-animation 1s infinite;
+    }
+
+    @keyframes pulse-animation {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    /* O BOTÃO DE CANCELAR ATUALIZADO PARA CELULAR */
+    .btn-cancel-mobile {
+        width: 100%;
+        padding: 15px;
+        background-color: #fceaea; /* Vermelho bem clarinho de fundo */
+        color: #d32f2f; /* Vermelho forte no texto */
+        border: 2px solid #f8d7da;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 14px;
+        cursor: pointer;
+        transition: 0.3s;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .btn-cancel-mobile:active {
+        background-color: #f8d7da;
+        transform: scale(0.98);
+    }
+
+    /* Estilo do botão principal da sua LP */
+    .btn-main {
+        background-color: #25d366;
+        color: white;
+        padding: 18px 30px;
+        border: none;
+        border-radius: 12px;
+        font-weight: bold;
+        font-size: 18px;
+        cursor: pointer;
+    }
+</style>
