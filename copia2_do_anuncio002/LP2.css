@@ -105,6 +105,10 @@ main {
     animation: pulso 1.5s infinite;
 
 }
+.versao {
+    text-align: center;
+
+}
 footer {
     min-height: 10em;
 }
