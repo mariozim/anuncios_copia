@@ -1,0 +1,188 @@
+@charset "UTF-8";
+@keyframes pulso {
+  0% {
+    transform: translate(-50%, -10%) scale(1);
+    opacity: 0.7;
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+  }
+  70% {
+    transform: translate(-50%, -10%) scale(1.1);
+    opacity: 1;
+    box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+  }
+  100% {
+    transform: translate(-50%, -10%) scale(1);
+    opacity: 0.7;
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+  }
+}
+@keyframes pulso_2 {
+  0% {
+    transform: translate scale(1.5);
+    opacity: 0.7;
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+  }
+  70% {
+    transform: translate scale(1.5);
+    opacity: 1;
+    box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+  }
+  100% {
+    transform: translate scale(1);
+    opacity: 0.7;
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+  }
+}
+:root {
+    --color1: #1a1a1a;   /* fundo escuro elegante */
+    --color2: #0abfbc;   /* destaque principal / botões */
+    --color3: #87f6ff;   /* detalhes e links */
+    --color4: #f2f2f2;   /* textos claros */
+    --color5: #ffffff;   /* fundo muito claro */
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    background-color: #00c853a1;
+    min-height: 10vh;
+    padding: 1dvh;
+}
+
+header h1{
+    text-align: center;
+    font-size: 45px
+;
+}
+
+main {
+    background-image: url('imgs/whatsapp_fundo.jpg');
+    background-attachment: fixed;
+    min-height: 80vh;
+    padding: 2dvh 5dvw;
+}
+
+.msg {
+    font-size:1.2rem;
+    line-height:1.6;
+    margin: auto;
+    background-color: white;
+    padding:15px;
+    border-radius: 20px;
+    margin: 10px 0px ;
+}
+
+
+#promocoes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.promocao {
+    margin: auto;
+    font-size:0.8rem;
+    line-height:1.6;
+    background-color: white;
+    padding:4px;
+    border-radius: 20px;
+    margin: 10px 0px;
+}
+.promocao img {
+    display: block;
+    margin: 0 auto;
+    width: 90%;
+    border-radius: 5%;
+}
+.promocao p {
+    padding: 5px;
+}
+
+#botao_principal {
+    width: 80vw;
+    height: 10vh; 
+    
+    text-align: center;
+    position: fixed;
+    top: 80vh;
+    left:50%;
+    display:inline-block; 
+    margin-top:20px; 
+    padding:12px 20px;
+    background:#00c853; 
+    color:white;
+    border-radius:8px; 
+    text-decoration:none; 
+    font-size:1.1rem; 
+    font-weight:bold;
+    animation: pulso 1.5s infinite;
+
+}
+footer {
+    min-height: 10em;
+}
+
+#formulario_principal {
+    display: block;
+    position: fixed;
+    border: 2px solid black;
+    border-radius: 5%;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 50%;
+    width: 70%;
+
+    padding: 5px;
+    text-align: center;
+    
+}
+#formulario_principal p {
+    padding-top: 5vh;
+
+}
+#formulario_principal input {
+    height: 5vh;
+    width: 80%;
+
+}
+
+
+
+#formulario_principal_fundo {
+        position: fixed;
+    inset: 0;
+
+    background-color: rgba(0,0,0,0.5);
+
+    z-index: 998;
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+#fechar {
+    border: none;
+    background-color: white;
+    text-align: right;
+    display: block;
+    margin: 0% 94%;
+    height: 5vh;
+}
+
+#btnEnviar {
+    display: block;
+    margin:20px auto;
+    background-color: #00c853;
+    padding: 2vh;
+    border-radius: 10px;
+    animation: pulso_2 1.5s infinite;
+
+
+}

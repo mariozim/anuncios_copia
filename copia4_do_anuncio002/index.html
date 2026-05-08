@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grupo achadinhos</title>
+    <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1609604343453787');
+    // fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1609604343453787&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
+
+</head>
+<body>
+    <header>
+        <h1>promoções </h1>
+        <h1>imperdiveis</h1>
+    </header>
+    <main>
+     <div id="promocoes">
+            
+             <div class="promocao">
+         <img src="imgs/creatina.png" alt="imagem pote de creatina">
+         <p><strong>CREATINA NO PRECINHO 💪🏻</strong></p>
+         <p>Creatine Pote 100g Max Titanium</p>
+         <p>Por <strong>R$ 15</strong></p>
+             </div>
+         
+             <div class="promocao">
+         <img src="imgs/liphoney.png" alt="liphoney foto ">
+         <p> <strong>O QUERIDINHO DO MOMENTO</strong></p>
+         <p>Fran by Franciny Ehlke LipHoney - Gloss Labial 3,5ml</p>
+         <p>Por <strong>R$ 19</strong></p>
+
+         </div>
+         <div class="promocao">
+            <img src="imgs/basemaquiagem.png" alt="base giratoria de maquiagens">
+            <p>*Organizador de maquiagem Giratório 360º*</p>
+
+            <p>💰 Por <strong> R$39,90</strong> </p>
+
+
+         </div>
+        <div class="promocao">
+            <img src="imgs/ferramentas.png" alt="">
+            <p>🛍️ *Maleta De Ferramentas Completa Reversível Soquetes Com 46 Peças*</p>
+
+            <p>💸 De <strong>R$ 39,99</strong></p>
+            <p>💰 Por <strong>R$ 24,98</strong> </p>
+
+        </div>
+         <div class="promocao"> 
+        <img src="imgs/carregador.png" alt="imagem carregador">
+        <p>🛍️ *Carregador 35W iPhone 15 Pro Max Turbo Cabo Tipo-C Tipo C de 1M*</p>
+
+        <p>💸 De <strong>R$ 29,00</strong></p>
+        <p>💰 Por <strong>R$ 14,99</strong></p>   
+         </div>
+        <div class="promocao">
+            <img src="imgs/chavedefenda.png" alt="jogo de chaves de fenda">
+            <p>🛍️ *Jogo De Chaves Fenda/Philips Tramontina 7 Peças - *</p>
+
+            <p>💸 De <strong>R$ 32,90</strong></p>
+            <p>💰 Por <strong>R$ 30,60</strong></p>
+
+        </div>
+     </div>
+
+
+    <p class="msg" >
+        🚀 <strong>Quer economizar de verdade?</strong><br>
+        Entre para o nosso grupo exclusivo de WhatsApp e receba 
+        <strong>as melhores promoções, cupons secretos e achadinhos atualizados em tempo real</strong>.
+    </p>
+
+    <p class="msg" >
+        💸 Nada de perder oferta boa — nós te avisamos primeiro!  
+        Já são centenas de pessoas economizando todos os dias.
+    </p>
+    <footer>
+
+    </footer>
+   
+    </main>
+
+
+
+    <button id="botao_principal" onclick="mostrar_formulario()">
+        <h3>
+        Entrar no grupo agora 🔥
+        </h3>
+    </button>
+    <div id="formulario_principal_fundo">
+        <div id="formulario_principal">
+            <button id="fechar" onclick="fechar_formulario()"><h1>x</h1></button>
+            <h3> preencha as informações</h3>
+
+            <p>Nome: </p>
+            <input type="text" name="nome" placeholder="Seu primeiro nome" required>
+            <p>whatsapp</p>
+            <input type="tel" name="whatsapp" placeholder="Seu WhatsApp com DDD" required>
+  
+            <button type="submit" id="btnEnviar">QUERO AS PROMOÇÕES AGORA 🔥</button>
+        </div>
+    </div>
+
+
+    <script>
+        function fechar_formulario() {
+               document.getElementById("formulario_principal_fundo").style.display = "none";
+               document.getElementById("botao_principal").style.animation = "pulso 1.5s infinite"
+
+        }
+        function mostrar_formulario() {
+               document.getElementById("formulario_principal_fundo").style.display = "flex";
+               document.getElementById("botao_principal").style.animation = "none"
+               document.getElementById("botao_principal").style.position = "transform: translate(-50%, -50%)"
+
+
+        }
+    </script>
+
+    
+
+
+</body>
+</html>
