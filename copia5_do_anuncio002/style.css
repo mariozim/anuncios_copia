@@ -1,28 +1,10 @@
 @charset "UTF-8";
-@keyframes pulso {
-  0% {
-    transform: translate(-50%, -10%) scale(1);
-    opacity: 0.7;
-    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
-  }
-  70% {
-    transform: translate(-50%, -10%) scale(1.1);
-    opacity: 1;
-    box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
-  }
-  100% {
-    transform: translate(-50%, -10%) scale(1);
-    opacity: 0.7;
-    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
-  }
-}
+
 :root {
-    --color1: #1a1a1a;   /* fundo escuro elegante */
-    --color2: #0abfbc;   /* destaque principal / botões */
-    --color3: #87f6ff;   /* detalhes e links */
-    --color4: #f2f2f2;   /* textos claros */
-    --color5: #ffffff;   /* fundo muito claro */
+    --color1: #1a1a1a;
+    --color2: #00c853; /* Verde WhatsApp */
 }
+
 * {
     margin: 0;
     padding: 0;
@@ -30,57 +12,96 @@
     font-family: 'Poppins', sans-serif;
 }
 
-header {
-    background-color: #00c853a1;
-    min-height: 10vh;
-    padding: 1dvh;
+/* Trava a rolagem da página */
+body, html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden; 
+    background-color: #f0f0f0;
 }
 
+header {
+    background-color: #00c853a1;
+    height: 12vh;
+}
 header h1{
     text-align: center;
-    font-size: 45px
-;
+    font-size: 39px;
 }
 
 main {
     background-image: url('imgs/whatsapp_fundo.jpg');
-    background-attachment: fixed;
-    min-height: 80vh;
-    padding: 2dvh 5dvw;
+    background-size: cover;
+    height: 88vh;
+    position: relative;
+    padding-top: 20px;
+}
+
+/* --- Container do Carrossel 3D --- */
+#promocoes-container {
+    width: 100%;
+    height: 280px; /* Reduzi a altura para sobrar espaço embaixo */
+    perspective: 1000px;
+    position: relative;
+    z-index: 2; /* Garante que fique acima do fundo */
+}
+
+#promocoes {
+    width: 180px; /* Reduzi a largura dos cards */
+    height: 100%;
+    position: relative;
+    margin: 5% auto;
+    transform-style: preserve-3d;
+    animation: girarEmEtapas 12s infinite ease-in-out;
+}
+
+.promocao {
+    position: absolute;
+    width: 180px;
+    height: 250px;
+    background: #fff;
+    border-radius: 12px;
+    padding: 10px;
+    text-align: center;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    backface-visibility: hidden;
+    font-size: 0.7rem;
+}
+
+.promocao img {
+    width: 100%;
+    height: 120px;
+    object-fit: contain;
+    border-radius: 8px;
+}
+
+/* Posições do Círculo (Ajustado para o novo tamanho) */
+.promocao:nth-child(1) { transform: rotateY(0deg) translateZ(200px); }
+.promocao:nth-child(2) { transform: rotateY(60deg) translateZ(200px); }
+.promocao:nth-child(3) { transform: rotateY(120deg) translateZ(200px); }
+.promocao:nth-child(4) { transform: rotateY(180deg) translateZ(200px); }
+.promocao:nth-child(5) { transform: rotateY(240deg) translateZ(200px); }
+.promocao:nth-child(6) { transform: rotateY(300deg) translateZ(200px); }
+
+/* --- Mensagens embaixo das promoções --- */
+.msg-container {
+    position: absolute;
+    bottom: 12vh; /* Fica acima do botão */
+    width: 100%;
+    padding: 0px 20px;
+    z-index: 1;
 }
 
 .msg {
-    font-size:1.2rem;
-    line-height:1.6;
-    margin: auto;
-    background-color: white;
-    padding:15px;
-    border-radius: 20px;
-    margin: 10px 0px ;
+    font-size: 0.9rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 10px;
+    border-radius: 15px;
+    margin: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
-
-
-
-.promocao {
-    margin: auto;
-    font-size:0.8rem;
-    line-height:1.6;
-    background-color: white;
-    padding:4px;
-    border-radius: 20px;
-    margin: 10px 0px;
-}
-.promocao img {
-    display: block;
-    margin: 0 auto;
-    width: 90%;
-    border-radius: 5%;
-}
-.promocao p {
-    padding: 5px;
-}
-
+/* --- Botão Fixo --- */
 #botao_principal {
     width: 80vw;
     height: 10vh; 
@@ -101,115 +122,7 @@ main {
     animation: pulso 1.5s infinite;
 
 }
-footer {
-    min-height: 10em;
-}
-#separacao {
-    padding-top: 50%;
-}
 
-#fechar {
-    border: none;
-    background-color: white;
-    text-align: right;
-    display: block;
-    margin: 0% 94%;
-    height: 5vh;
-}
-
-#btnEnviar {
-    display: block;
-    margin:20px auto;
-    background-color: #00c853;
-    padding: 2vh;
-    border-radius: 10px;
-    animation: pulso_2 1.5s infinite;
-
-
-}
-/* O container que limita a visualização */
-#promocoes-container {
-    width: 300px; /* Largura do card */
-    height: 400px; /* Altura aproximada para caber imagem e texto */
-    margin: 50px auto;
-    perspective: 1200px; /* Profundidade */
-}
-
-#promocoes {
-    width: 100%;
-    height: 100%;
-    position: relative;
-    transform-style: preserve-3d;
-    transition: transform 1s;
-    animation: girarPromocao 20s infinite linear; /* Giro contínuo */
-}
-
-.promocao {
-    position: absolute;
-    width: 300px;
-    height: 400px;
-    left: 0;
-    top: 0;
-    background: #fff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    text-align: center;
-    padding: 15px;
-    box-sizing: border-box;
-    backface-visibility: hidden; /* Esconde o fundo para não poluir visualmente */
-}
-
-.promocao img {
-    width: 100%;
-    height: auto;
-    max-height: 200px;
-    object-fit: contain;
-}
-#promocoes-container {
-    width: 100%;
-    max-width: 800px; /* Aumentado para caber as laterais */
-    height: 450px;
-    margin: 50px auto;
-    perspective: 1200px; 
-    overflow: hidden; /* Esconde o que estiver muito atrás */
-}
-
-#promocoes {
-    width: 300px;
-    height: 100%;
-    position: relative;
-    margin: 0 auto;
-    transform-style: preserve-3d;
-    animation: girarEmEtapas 12s infinite ease-in-out;
-}
-
-.promocao {
-    position: absolute;
-    width: 280px;
-    height: 350px;
-    background: #fff;
-    border-radius: 15px;
-    padding: 20px;
-    box-sizing: border-box;
-    text-align: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    
-    /* Suaviza a transição de tamanho e brilho */
-    transition: all 0.5s; 
-    backface-visibility: hidden;
-}
-
-/* --- Posicionamento Circular --- */
-/* Diminuí o translateZ para 260px para que as laterais apareçam mais próximas do centro */
-.promocao:nth-child(1) { transform: rotateY(0deg) translateZ(260px); }
-.promocao:nth-child(2) { transform: rotateY(60deg) translateZ(260px); }
-.promocao:nth-child(3) { transform: rotateY(120deg) translateZ(260px); }
-.promocao:nth-child(4) { transform: rotateY(180deg) translateZ(260px); }
-.promocao:nth-child(5) { transform: rotateY(240deg) translateZ(260px); }
-.promocao:nth-child(6) { transform: rotateY(300deg) translateZ(260px); }
-
-/* --- Efeito de Profundidade --- */
-/* Isso faz com que tudo que não esteja na frente fique menor e opaco */
 @keyframes girarEmEtapas {
     0%, 13% { transform: rotateY(0deg); }
     16%, 29% { transform: rotateY(-60deg); }
@@ -218,4 +131,22 @@ footer {
     64%, 77% { transform: rotateY(-240deg); }
     80%, 93% { transform: rotateY(-300deg); }
     100% { transform: rotateY(-360deg); }
+}
+
+@keyframes pulso {
+  0% {
+    transform: translate(-50%, -10%) scale(1);
+    opacity: 0.7;
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0.7);
+  }
+  70% {
+    transform: translate(-50%, -10%) scale(1.1);
+    opacity: 1;
+    box-shadow: 0 0 0 10px rgba(52, 152, 219, 0);
+  }
+  100% {
+    transform: translate(-50%, -10%) scale(1);
+    opacity: 0.7;
+    box-shadow: 0 0 0 0 rgba(52, 152, 219, 0);
+  }
 }
