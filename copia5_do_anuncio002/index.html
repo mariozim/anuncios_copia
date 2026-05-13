@@ -29,6 +29,7 @@
     <header>
         <h1>promoções </h1>
         <h1>imperdiveis</h1>
+        <p>versao 1</p>
     </header>
     <main>
      <div id="promocoes">
@@ -80,7 +81,7 @@
         </div>
      </div>
 
-
+    <div id="separacao"></div>
     <p class="msg" >
         🚀 <strong>Quer economizar de verdade?</strong><br>
         Entre para o nosso grupo exclusivo de WhatsApp e receba 
@@ -94,84 +95,25 @@
     <footer>
 
     </footer>
-   
+
     </main>
-
-
-
-    <button id="botao_principal" onclick="mostrar_formulario()">
-        <h3>
-        Entrar no grupo agora 🔥
-        </h3>
-    </button>
-    <div id="formulario_principal_fundo">
-        <form action="https://script.google.com/macros/s/AKfycbzhYYZr0ugNNYKtFmERT8U7cmPHY3AmLZYHITvIm42tsWcKYi7Bo-8gQ543FbPNmPs/exec" method="POST" id="formulario_principal" onsubmit="enviarDados()">
-
-            <button id="fechar" onclick="fechar_formulario()"><h1>x</h1></button>
-            <h3> preencha as informações</h3>
-
-            <p>Nome: </p>
-            <input type="text" name="nome" placeholder="Seu primeiro nome" required>
-            <p>whatsapp</p>
-            <input type="tel" name="whatsapp" placeholder="Seu WhatsApp com DDD" required>
-  
-            <button type="submit" id="btnEnviar">QUERO AS PROMOÇÕES AGORA 🔥</button>
-        </form> 
-    </div>
-
-
- <script>
-    // Funções de interface que você já tinha
-    function fechar_formulario() {
-        document.getElementById("formulario_principal_fundo").style.display = "none";
-        document.getElementById("botao_principal").style.animation = "pulso 1.5s infinite";
-    }
-
-    function mostrar_formulario() {
-        document.getElementById("formulario_principal_fundo").style.display = "flex";
-        document.getElementById("botao_principal").style.animation = "none";
-        document.getElementById("botao_principal").style.position = "transform: translate(-50%, -50%)";
-    }
-
-    // Lógica de Envio de Dados
-    const form = document.getElementById('formulario_principal');
-    const linkDoGrupo = "whatsapp://chat?code=HnHAEotRJlGLjw18eNXgJ6";
-
-    form.addEventListener('submit', function(e) {
-        // 1. Validação manual: Se o formulário não estiver preenchido, para aqui e mostra o aviso do navegador
-        if (!form.checkValidity()) {
-            return; 
-        }
-
-        // 2. Impede o navegador de abrir o link do Google
-        e.preventDefault();
+    <a id="botao_principal" href="whatsapp://chat?code=HnHAEotRJlGLjw18eNXgJ6" onclick="fbq('track', 'Lead');">
+        <h2>Entrar no grupo agora 🔥</h2>
+    </a>
+    <script>
+        window.onload = function () {
+    setTimeout(() => {
+        console.log("5 segundos passaram");
         
-        const btn = document.getElementById('btnEnviar');
-        btn.innerText = "Salvando seu acesso...";
-        btn.disabled = true;
+        // seu código aqui
+        fbq('track', 'ViewContent');
 
-        // 3. Dispara o Pixel do Facebook
-        if (typeof fbq !== 'undefined') {
-            fbq('track', 'Lead');
-        }
+        
+    }, 5000);
 
-        // 4. Envia os dados para a planilha em segundo plano
-        fetch(form.action, {
-            method: 'POST',
-            body: new FormData(form),
-            mode: 'no-cors'
-        })
-        .then(() => {
-            // 5. Redireciona para o WhatsApp após o envio
-            window.location.href = linkDoGrupo;
-        })
-        .catch(() => {
-            // Caso dê erro de conexão, redireciona mesmo assim para não travar o usuário
-            window.location.href = linkDoGrupo;
-        });
-    });
-</script>
+};
 
+    </script>
     
 
 
