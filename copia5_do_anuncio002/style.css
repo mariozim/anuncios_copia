@@ -50,7 +50,7 @@ main {
     width: 180px; /* Reduzi a largura dos cards */
     height: 100%;
     position: relative;
-    margin: 5% auto;
+    margin: 5px auto;
     transform-style: preserve-3d;
     animation: girarEmEtapas 12s infinite ease-in-out;
 }
