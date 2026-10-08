@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>grupo achadinhos</title>
+    <link rel="preconnect" href="https://connect.facebook.net">
+    <link rel="preconnect" href="https://www.facebook.com">
+    <link rel="shortcut icon" href="imgs/favicon.ico" type="image/x-icon">
+    <!-- Meta Pixel Code Otimizado -->
+    <script>
+        window.fbq || (window.fbq = function() {
+            fbq.callMethod ? fbq.callMethod.apply(fbq, arguments) : fbq.queue.push(arguments)
+        });
+        if (!window._fbq) window._fbq = fbq;
+        fbq.push = fbq;
+        fbq.loaded = !0;
+        fbq.version = '2.0';
+        fbq.queue = [];
+
+        // Carregamento assíncrono do SDK
+        var script = document.createElement('script');
+        script.async = true; 
+        script.src = 'https://connect.facebook.net/en_US/fbevents.js';
+        var firstScript = document.getElementsByTagName('script')[0];
+        firstScript.parentNode.insertBefore(script, firstScript);
+
+        fbq('init', '1609604343453787');
+        fbq('track', 'PageView');
+
+    </script>
+    <noscript>
+        <img height="1" width="1" style="display:none" 
+            src="https://www.facebook.com/tr?id=1609604343453787&ev=PageView&noscript=1" />
+    </noscript>
+    <link rel="preload" fetchpriority="high" as="image" href="whatsapp_fundo.webp" type="image/webp">
+    <style>
+        @keyframes pulso {
+            0% { transform: translate(-50%, -10%) scale(1); }
+            50% { transform: translate(-50%, -10%) scale(1.05); }
+            100% { transform: translate(-50%, -10%) scale(1); }
+        }
+
+        :root {
+            --color1: #1a1a1a;   /* fundo escuro elegante */
+            --color2: #0abfbc;   /* destaque principal / botões */
+            --color3: #87f6ff;   /* detalhes e links */
+            --color4: #f2f2f2;   /* textos claros */
+            --color5: #ffffff;   /* fundo muito claro */
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:  sans-serif;
+        }
+
+        header {
+            background-color: #00c853a1;
+            min-height: 10vh;
+            padding: 1dvh;
+        }
+
+        header h1{
+            text-align: center;
+            font-size: 45px
+        ;
+        }
+
+        main {
+            background-image: url('imgs/whatsapp_fundo.webp');
+            background-attachment: fixed;
+            min-height: 80vh;
+            padding: 2dvh 5dvw;
+        }
+
+        .msg {
+            font-size:1.2rem;
+            line-height:1.6;
+            margin: auto;
+            background-color: white;
+            padding:15px;
+            border-radius: 20px;
+            margin: 10px 0px ;
+        }
+        
+        #cronometrodiv {
+    text-align: center;
+    border-radius: 16px;
+    padding: 10px 18px;
+    background: linear-gradient(135deg, #ff3131, #d90000);
+    color: black;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.18);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    max-width: 320px;
+    margin: 15px auto;
+}
+        #botao_principal {
+            width: 80vw;
+            height: 10vh; 
+            
+            text-align: center;
+            position: fixed;
+            top: 80vh;
+            left:50%;
+            display:inline-block; 
+            margin-top:20px; 
+            padding:12px 20px;
+            background:#00c853; 
+            color:white;
+            border-radius:8px; 
+            text-decoration:none; 
+            font-size:1.1rem; 
+            font-weight:bold;
+            transform: translate(-50%,-10%); 
+
+            /* ANIMAÇÃO OTIMIZADA */
+            animation: pulso 1.5s infinite 1s;
+            will-change: transform; /* Avisa ao navegador para usar a GPU */
+
+        }
+        footer {
+            min-height: 10em;
+        }
+
+
+    </style>
+
+</head>
+<body>
+    <header>
+        <h1>promoções </h1>
+        <h1>imperdiveis</h1>
+    </header>
+    <main>
+    <p class="msg" >
+        🚀 <strong>Quer economizar de verdade?</strong><br>
+        Entre para o nosso grupo exclusivo de WhatsApp e receba 
+        <strong>as melhores promoções, cupons secretos e achadinhos atualizados em tempo real</strong>.
+    </p>
+
+    <p class="msg" >
+        💸 Nada de perder oferta boa — nós te avisamos primeiro!  
+        Já são centenas de pessoas economizando todos os dias.
+    </p>
+     <div id="cronometrodiv">
+    <div style="font-size: 18px; font-weight: bold;">
+        ⏰ Entrada disponível por mais:
+    </div>
+
+    <div id="cronometro" style="
+        font-size: 42px;
+        font-weight: 800;
+        margin-top: 5px;
+    ">
+        03:00
+    </div>
+</div>
+
+    <footer>
+
+    </footer>
+
+    </main>
+    <a id="botao_principal" href="whatsapp://chat?code=HnHAEotRJlGLjw18eNXgJ6" onclick="dispararLead(event);">
+        <h2 id="texto_botao_principal">Entrar no grupo agora 🔥</h2>
+    </a>
+    <script>
+            let tempo = 3 * 60;
+    const cronometro = document.getElementById("cronometro");
+
+    function atualizarCronometro() {
+        const minutos = Math.floor(tempo / 60);
+        const segundos = tempo % 60;
+
+        cronometro.textContent =
+            String(minutos).padStart(2, "0") + ":" +
+            String(segundos).padStart(2, "0");
+
+        if (tempo > 0) {
+            tempo--;
+        }
+    }
+
+    atualizarCronometro();
+    setInterval(atualizarCronometro, 1000);
+        let leadDisparado = false;
+
+        function dispararLead(e) {
+            if (!leadDisparado) {
+            document.getElementById("botao_principal").style.backgroundColor = "#005e27";
+            document.getElementById("texto_botao_principal").innerText = "carregando grupo aguarde...";
+            document.getElementById("botao_principal").style.animation = "none";
+            fbq('track', 'Lead');
+            leadDisparado = true; 
+            // Agora, mesmo que clique de novo, não entrará no IF
+            }
+        }
+       
+        let sec5 = false
+        if (!sec5) {
+        window.onload = function () {setTimeout(() => {
+        console.log("5 segundos passaram");
+        
+        // seu código aqui
+        fbq('track', 'ViewContent');
+        sec5 = true
+        
+    }, 5000);}
+};
+    </script>
+    
+
+
+</body>
+</html>
